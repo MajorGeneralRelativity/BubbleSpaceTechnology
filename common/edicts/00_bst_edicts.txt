@@ -1,0 +1,18 @@
+influence_campaign = {
+	length = -1
+	icon = "GFX_edict_type_time"
+	resources = {
+		category = campaigns
+		cost = {
+			unity = 100
+		}
+	}
+
+	modifier = {
+		country_base_influence_produces_add = 1
+	}
+
+	ai_weight = {
+		weight = 0
+	}
+}
