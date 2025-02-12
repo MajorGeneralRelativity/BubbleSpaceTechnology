@@ -1,0 +1,12 @@
+namespace = bst_setup
+
+country_event = {
+	id = bst_setup.1 #Event that fires at the beginning of the game to let people know that the mod is in a clear alpha state
+	is_triggered_only = yes
+	fire_only_once = yes
+	title = "bst_setup.1.name"
+	desc = "bst_setup.1.desc"
+	immediate = {
+		
+	}
+}

@@ -1,0 +1,14 @@
+namespace = bst
+country_event = {
+	id = bst.1
+	hide_window = yes
+	fire_only_once = yes
+	trigger = {
+		NOT = {
+			has_global_flag = bst_installed
+		}
+	}
+	immediate = {
+		set_global_flag = bst_installed
+	}
+}
