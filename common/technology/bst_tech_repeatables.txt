@@ -1,0 +1,32 @@
+tech_casual_ascension_perks_24 = {
+	area = society
+	cost = 50000
+	cost_per_level = 1000
+	tier = 5
+	category = { statecraft }
+	levels = 8
+	
+	ai_update_type = all
+	is_rare = yes
+	icon = tech_ascension_theory
+	weight = @repeatableTechWeight
+	
+	weight_modifier = {
+		factor = @repatableTechFactor
+	}
+	
+	ai_weight = {
+		factor = 1.0
+	}
+	
+	weight_groups = {
+		repeatable
+	}
+	mod_weight_if_group_picked = {
+		repeatable = 0.01
+	}
+	
+	modifier = {
+		ascension_perks_add = 1
+	}
+}

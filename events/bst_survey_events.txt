@@ -1,5 +1,6 @@
 namespace = bst_survey
 
+#These events set up an empire's beginning with the mod's tech chain.
 country_event = {
 	id = bst_survey.1
 	is_triggered_only = yes
