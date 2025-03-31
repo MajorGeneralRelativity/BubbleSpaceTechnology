@@ -1,5 +1,12 @@
 on_game_start_country = {
 	events = {
 		bst_setup.1
+		bst_survey.1
+	}
+}
+
+on_survey_planet = {
+	events = {
+		bst_survey.2	# BST hidden event for tracking surveys
 	}
 }
