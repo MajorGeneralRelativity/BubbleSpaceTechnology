@@ -1,6 +1,4 @@
 survey_bst_worlds_chain = {
-	icon = "gfx/interface/icons/situation_log/situation_log_quest.dds"
-	picture = GFX_evt_alien_nature
 	counter = {
 		bst_worlds_surveyed = {
 			max = 2

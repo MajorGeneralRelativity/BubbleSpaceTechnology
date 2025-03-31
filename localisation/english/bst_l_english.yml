@@ -6,4 +6,6 @@
  survey_bst_worlds_chain_title:0 "Bubble Space Technology Survey Event Chain"
  survey_bst_worlds_chain_desc:0 "Coming Soon"
  bst_survey.3.name:0 "Survey Complete!"
- bst_survey.3.desc:0 "You've completed the survey!"
+ bst_survey.3.desc:0 "Our science ship was surveying a frozen world when they detected an unusually regular series of voids buried under some of the snow and ice. Upon descending to investigate, they have uncovered what appears to be an abandoned installation constructed by an unknown alien race. While the ship cannot detect any thermal or electromagnetic signatures, the surveyors agree that a more detailed excavation by archaeologists is required."
+ tech_bst_more_ascension_perks:0 "Generate New Ascension Perk"
+ tech_bst_more_ascension_perks_desc:0 "This will unlock another Ascension Perk Slot"

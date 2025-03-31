@@ -1,4 +1,4 @@
-tech_casual_ascension_perks_24 = {
+tech_bst_more_ascension_perks = {
 	area = society
 	cost = 50000
 	cost_per_level = 1000

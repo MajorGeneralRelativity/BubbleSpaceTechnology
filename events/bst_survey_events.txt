@@ -1,6 +1,7 @@
 namespace = bst_survey
 
 #These events set up an empire's beginning with the mod's tech chain.
+#Set up chain to begin tracking the quantity of frozen worlds scanned
 country_event = {
 	id = bst_survey.1
 	is_triggered_only = yes
@@ -16,6 +17,7 @@ country_event = {
 	}
 }
 
+#Hidden event to increment counter each time a frozen world is scanned
 ship_event = {
 	id = bst_survey.2
 	hide_window = yes
@@ -24,20 +26,7 @@ ship_event = {
 
 	trigger = {
 		owner = { has_event_chain = survey_bst_worlds_chain }
-		from = {
-			OR = {
-				is_planet_class = pc_desert
-				is_planet_class = pc_tropical
-				is_planet_class = pc_arid
-				is_planet_class = pc_continental
-				is_planet_class = pc_ocean
-				is_planet_class = pc_tundra
-				is_planet_class = pc_arctic
-				is_planet_class = pc_alpine
-				is_planet_class = pc_savannah
-				is_planet_class = pc_gaia				
-			}
-		}
+		from = {is_planet_class = pc_frozen}
 	}
 
 	immediate = {
@@ -55,6 +44,7 @@ ship_event = {
 	}
 }
 
+#Event to mark the completion of the survey event chain and reveal the digsite
 country_event = {
 	id = bst_survey.3
 
@@ -70,5 +60,6 @@ country_event = {
 	}
 	immediate = {
 		set_country_flag = bst_completed_beginning_survey
+		set_country_flag = bst_primary_archaeological_digsite_begin
 	}
 }
