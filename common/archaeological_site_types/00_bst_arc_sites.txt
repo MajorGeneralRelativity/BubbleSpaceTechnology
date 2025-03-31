@@ -1,0 +1,29 @@
+bst_beginning_digsite_1 = {
+	desc = bst_beginning_digsite_1_desc
+	picture = GFX_evt_overgrown_city
+	stages = 2
+	max_instances = 999
+	allow = {
+		is_ship_class = shipclass_science_ship
+		exists = leader
+		# TODO figure out a way to require a leader level
+	}
+	visible = {
+		has_country_flag = bst_primary_archaeological_digsite_begin
+	}
+	stage = {
+		difficulty = 1
+		icon = GFX_archaeology_runes_F1
+		event = bst_digsite.1
+	}
+	stage = {
+		difficulty = 1
+		icon = GFX_archaeology_runes_F2
+		event = bst_digsite.2
+	}
+	on_roll_failed = {
+		from = {
+			standard_archaeological_site_on_roll_failed = { RANDOM_EVENTS = all_random_events }
+		}
+	}
+}

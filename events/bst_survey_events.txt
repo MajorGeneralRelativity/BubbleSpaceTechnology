@@ -10,10 +10,7 @@ country_event = {
 	
 	immediate = {
 		set_country_flag = bst_beginning_survey
-		begin_event_chain = {
-			event_chain = survey_bst_worlds_chain
-			target = ROOT
-		}
+		set_variable = { which = bst_frozen_surveyed_count value = 0}
 	}
 }
 
@@ -25,16 +22,15 @@ ship_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		owner = { has_event_chain = survey_bst_worlds_chain }
-		from = {is_planet_class = pc_frozen}
+		owner = { has_country_flag = bst_beginning_survey }
+		from = { is_planet_class = pc_frozen }
 	}
 
 	immediate = {
 		owner = {
-			add_event_chain_counter = {
-				event_chain = survey_bst_worlds_chain
-				counter = bst_worlds_surveyed
-				amount = 1
+			change_variable = {
+				which = bst_frozen_surveyed_count
+				value = 1
 			}
 			country_event = {
 				id = bst_survey.3
@@ -49,17 +45,20 @@ country_event = {
 	id = bst_survey.3
 
 	is_triggered_only = yes
+
 	title = "bst_survey.3.name"
 	desc = "bst_survey.3.desc"
 
 	trigger = {
-		has_completed_event_chain_counter = {
-			event_chain = survey_bst_worlds_chain
-			counter = bst_worlds_surveyed
+		check_variable = {
+			which = bst_frozen_surveyed_count
+			value = 3
 		}
 	}
 	immediate = {
+		remove_country_flag = bst_beginning_survey
 		set_country_flag = bst_completed_beginning_survey
 		set_country_flag = bst_primary_archaeological_digsite_begin
+		from = {create_archaeological_site = bst_beginning_digsite_1}
 	}
 }

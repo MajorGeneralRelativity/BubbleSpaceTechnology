@@ -2,7 +2,7 @@
  edict_influence_campaign:0 "Generate More Influence"
  edict_influence_campaign_desc:0 "This is the test command to net a bit of influence"
  bst_setup.1.name:0 "Bubble Space Technology Opening"
- bst_setup.1.desc:0 "Bubble Space Technology is in an early alpha state. This means that you should expect bugs and missing content. c193dce"
+ bst_setup.1.desc:0 "Bubble Space Technology is in an early alpha state. This means that you should expect bugs and missing content. 1d13d0d"
  survey_bst_worlds_chain_title:0 "Bubble Space Technology Survey Event Chain"
  survey_bst_worlds_chain_desc:0 "Coming Soon"
  bst_survey.3.name:0 "Survey Complete!"

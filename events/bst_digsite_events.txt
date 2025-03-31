@@ -1,0 +1,48 @@
+namespace = bst_digsite
+
+#Events for archaeological digsites
+
+#First event for beginning Frozen World digsite
+fleet_event = {
+	id = bst_digsite.1
+	title = "bst_digsite.1.name"
+	desc = bst_digsite.1.desc
+	picture = GFX_evt_overgrown_city
+	show_sound = event_wind_ruins
+	location = from
+
+	archaeology = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = bst_digsite.1.a
+		owner = {
+			add_resource = {
+				energy = 10
+			}
+		}
+	}
+}
+
+fleet_event = {
+	id = bst_digsite.2
+	title = "bst_digsite.2.name"
+	desc = bst_digsite.2.desc
+	picture = GFX_evt_overgrown_city
+	show_sound = event_wind_ruins
+	location = from
+
+	archaeology = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = bst_digsite.2.a
+		owner = {
+			add_resource = {
+				energy = 10
+			}
+		}
+	}
+}
