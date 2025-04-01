@@ -58,7 +58,7 @@ country_event = {
 	immediate = {
 		remove_country_flag = bst_beginning_survey
 		set_country_flag = bst_completed_beginning_survey
-		set_country_flag = bst_primary_archaeological_digsite_begin
-		from = {create_archaeological_site = bst_beginning_digsite_1}
+		set_country_flag = bst_begin_first_digsite
+		fromfrom = {create_archaeological_site = bst_beginning_digsite_1}
 	}
 }

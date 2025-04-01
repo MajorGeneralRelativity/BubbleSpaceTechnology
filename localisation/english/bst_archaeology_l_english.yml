@@ -1,0 +1,12 @@
+﻿l_english:
+ bst_beginning_digsite_1: "Abandoned Frozen Outpost"
+ bst_beginning_digsite_1_desc: "An abandoned outpost has been discovered on this planet. No signs of power or life have been detected, and the outpost doesn't appear to be particularly large, but the technology on display is leagues ahead of our empire."
+ bst_digsite.1.name: "Initial Survey"
+ bst_digsite.1.desc: "After exploring the complex on foot, our archaeologists and surveyors have failed to find any sign of remains. No bodies or fossils have been found, and there don't seem to be any signs of machine life. Now they are ready to begin attempting to power up some of the derelict machinery."
+ bst_digsite.1.a: "Where did everyone go?"
+ bst_digsite.2.name: "Electrical Engineering"
+ bst_digsite.2.desc: "Despite the scientists' best efforts, only minimal progress has been made on powering the machinery. While the computers and other equipment has electrical wires and circuitry, it also appears to run off an unidentified source of energy concurrently. Meanwhile, several glaciologists have drilled into the snow and ice covering the outpost and examined the results. With a relatively even deposition pattern and a high degree of structural integrity across the roof of the outpost, they believe that the outpost was abandoned intact. This happened over two centuries ago, and the outpost was gradually buried over time. Without being able to power up the equipment however, nobody has been able to offer a convincing explanation of why someone would establish an outpost on a Frozen World and then simply abandon it, although the climate of the world could have changed over the centuries."
+ bst_digsite.2.a: "Keep studying the equipment!"
+ bst_digsite.3.name: "Temporary Setbacks"
+ bst_digsite.3.desc: "Despite trying everything imaginable, and several random things besides, none of the core machinery can be powered. However, further study outside of the main outpost buildings have turned up occasional sensors and other devices that have been restored to minimal functionality. Some of the devices have no known purpose, but others appear to be laser interferometers of unsurpassed sensitivity. As many of these devices are being retrieved and studied as possible. In the meantime, the scientists working on the core machinery recommend suspending our efforts for now until a deeper understanding is achieved of the secondary type of energy that seems to power everything in the outpost proper."
+ bst_digsite.3.a: "Very well. Keep me informed."

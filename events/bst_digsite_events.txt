@@ -18,8 +18,9 @@ fleet_event = {
 	option = {
 		name = bst_digsite.1.a
 		owner = {
-			add_resource = {
-				energy = 10
+			add_monthly_resource_mult = {
+				resource = physics_research
+				value = 10
 			}
 		}
 	}
@@ -40,8 +41,38 @@ fleet_event = {
 	option = {
 		name = bst_digsite.2.a
 		owner = {
-			add_resource = {
-				energy = 10
+			add_monthly_resource_mult = {
+				resource = engineering_research
+				value = 10
+			}
+		}
+	}
+}
+
+fleet_event = {
+	id = bst_digsite.3
+	title = "bst_digsite.3.name"
+	desc = bst_digsite.3.desc
+	picture = GFX_evt_overgrown_city
+	show_sound = event_wind_ruins
+	location = from
+
+	archaeology = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		owner = {
+			remove_country_flag = bst_begin_first_digsite
+			set_country_flag = bst_completed_first_digsite
+		}
+	}
+	option = {
+		name = bst_digsite.3.a
+		owner = {
+			add_monthly_resource_mult = {
+				resource = physics_research
+				value = 10
 			}
 		}
 	}
