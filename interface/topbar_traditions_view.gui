@@ -1,37 +1,48 @@
-@entries_row1_y = 63
-@entries_row2_y = 329
-@entries_column1 = 11
-@entries_column2 = 325
-@entries_column3 = 639
-@entries_column4 = 953
-@entry_h = 260
-@entry_w = 308
+@entries_row1_y = 247  # AP Height
+@entries_row2_y = 513
+@entries_row3_y = 1045 # Tradition Height
 
-@two_layer_tree_h = 25
-@three_layer_tree_h = 0
+@entries_column1 = 5
+@entries_column2 = 319
+@entries_column3 = 633
+@entries_column4 = 947
+
+@entry_h = 260
+@entry_h_narrow = 180
+@entry_w = 308
+@bigwindow_720 = 675
+@bigwindow_1080 = 1041
+@bigwindow_1440 = 1307
+@bigwindow_w = 1270
+@entry_h_ap = 180
+@entry_w_ap = 1252
 
 @dynamic_extra = 0.8
 @dynamic_extra_max = 260
 
+@two_layer_tree_h = 25
+@three_layer_tree_h = 0
+
 guiTypes = {
+
 
 	################################################################
 	# ASCENSION PERKS ENTRY POSITIONS
 	################################################################
+	
+	positionType = { name = "ap_0"	position = { x = 0 y = 2 } }
+	positionType = { name = "ap_1"	position = { x = 58 y = 2 } }
+	positionType = { name = "ap_2"	position = { x = 116 y = 2 } }
+	positionType = { name = "ap_3"	position = { x = 174 y = 2 } }
+	positionType = { name = "ap_4"	position = { x = 232 y = 2 } }
+	positionType = { name = "ap_5"	position = { x = 290 y = 2 } }
+	positionType = { name = "ap_6"	position = { x = 348 y = 2 } }
+	positionType = { name = "ap_7"	position = { x = 406 y = 2 } }
+	positionType = { name = "ap_8"	position = { x = 464 y = 2 } }
+	positionType = { name = "ap_9"	position = { x = 522 y = 2 } }
+	positionType = { name = "ap_10"	position = { x = 580 y = 2 } }
+	positionType = { name = "ap_11"	position = { x = 638 y = 2 } }
 
-	positionType = { name = "ap_0"	position = { x = 15 y = 50 } }
-	positionType = { name = "ap_1"	position = { x = 73 y = 50 } }
-	positionType = { name = "ap_2"	position = { x = 131 y = 50 } }
-	positionType = { name = "ap_3"	position = { x = 189 y = 50 } }
-	positionType = { name = "ap_4"	position = { x = 44 y = 99 } }
-	positionType = { name = "ap_5"	position = { x = 102 y = 99 } }
-	positionType = { name = "ap_6"	position = { x = 160 y = 99 } }
-	positionType = { name = "ap_7"	position = { x = 218 y = 99 } }
-
-	positionType = { name = "ap_8"	position = { x = 15 y = 148 } }
-	positionType = { name = "ap_9"	position = { x = 73 y = 148 } }
-	positionType = { name = "ap_10"	position = { x = 131 y = 148 } }
-	positionType = { name = "ap_11"	position = { x = 189 y = 148 } }
 
 	containerWindowType = {
 		name = "traditions_ascension_perk_entry"
@@ -86,8 +97,9 @@ guiTypes = {
 
 	containerWindowType = {
 		name = "traditions_view"
-		size = { width = 1272 height = 600 }
-
+		size = { width = @bigwindow_w height = 100% } #This needs tweaked based on number of rows, easiest way to do that is to change the variable at the top of the file for bigwindow_h.
+		
+		verticalScrollbar = "right_vertical_slider"
 		position = { x = -1270 y = 40 }
 		show_position = { x = 35 y = 40 }
 		hide_position = { x = -1270 y = 40 }
@@ -104,10 +116,11 @@ guiTypes = {
 			spriteType = "GFX_tile_outliner_bg"
 		}
 
+		#Some of these numbers were tweaked in PT/LoT to allow for space at the top for the Tab buttons
 		iconType = {
 			name = "hex_bg"
 			spriteType = "GFX_hex_bg"
-			position = { x = 5 y = -12 }
+			position = { x = -23 y = -18 }
 			alwaysTransparent = yes
 		}
 
@@ -122,7 +135,7 @@ guiTypes = {
 			name = "header"
 			font = "malgun_goth_24"
 			text = "TRADITIONS"
-			position = { x = 35 y = 5 }
+			position = { x = 65 y = 5 }
 			maxWidth = 300
 			maxHeight = 20
 			fixedSize = yes
@@ -132,22 +145,26 @@ guiTypes = {
 		buttonType = {
 			name = "close"
 			spriteType = "GFX_close"
-			position = { x = -45 y = 16 }
+			position = { x = -55 y = 16 }
 			orientation = upper_right
 			shortcut = "ESCAPE"
 			clicksound = "back_click"
 			pdx_tooltip = "CLOSE_TITLE"
 		}
 
+		#This is all the same as before
 		########################
 		# TABS
 		########################
-		@tabHeight = 598
+		@tabHeight = 8
+		@tab_x1 = 766
+		@tab_x2 = 895
+		@tab_x3 = 1019
 
 		buttonType = {
 			name = "tab_traditions"
 			quadTextureSprite = "GFX_tab_1_inactive"
-			position = { x = -20 y = @tabHeight }
+			position = { x = @tab_x1 y = @tabHeight }
 			font = "cg_16b"
 			buttonText = "TRADITIONS"
 			buttonFont = "cg_16b"
@@ -158,7 +175,7 @@ guiTypes = {
 		buttonType = {
 			name = "tab_traditions_active"
 			quadTextureSprite = "GFX_tab_1_active"
-			position = { x = -20 y = @tabHeight }
+			position = { x = @tab_x1 y = @tabHeight }
 			font = "cg_16b"
 			buttonText = "TRADITIONS"
 			buttonFont = "cg_16b"
@@ -169,7 +186,7 @@ guiTypes = {
 		buttonType = {
 			name = "tab_crisis"
 			quadTextureSprite = "GFX_tab_2_inactive"
-			position = { x = 109 y = @tabHeight }
+			position = { x = @tab_x2 y = @tabHeight }
 			font = "cg_16b"
 			buttonText = "CRISIS_TAB"
 			buttonFont = "cg_16b"
@@ -180,7 +197,7 @@ guiTypes = {
 		buttonType = {
 			name = "tab_crisis_active"
 			quadTextureSprite = "GFX_tab_2_active"
-			position = { x = 109 y = @tabHeight }
+			position = { x = @tab_x2 y = @tabHeight }
 			font = "cg_16b"
 			buttonText = "CRISIS_TAB"
 			buttonFont = "cg_16b"
@@ -194,20 +211,21 @@ guiTypes = {
 
 		containerWindowType = {
 			name = "traditions_window"
-			size = { width = 1272 height = 600 }
+			size = { width = @bigwindow_w height = 100% } #This needs tweaked based on number of rows, easiest way to do that is to change the variable at the top of the file for bigwindow_h.
 			moveable = no
 			orientation = upper_left
 			position = { x = 0 y = 0 }
 
+			#These were moved in LoT/PT to make room on the top for the Tab Buttons
 			containerWindowType = {
 				name = "tradition_box"
-				size = { width = 600 height = 40 }
+				size = { width = 600 height = 100 }
 				position = { x = 370 y = 20 }
 
 				instantTextBoxType = {
 					name = "tradition_cost"
 					font = "malgun_goth_24"
-					position = { x = 0 y = -3 }
+					position = { x = -60 y = -3 }
 					maxWidth = 140
 					maxHeight = 20
 					fixedSize = yes
@@ -217,14 +235,14 @@ guiTypes = {
 				iconType = {
 					name = "progress"
 					spriteType = "GFX_tech_research_progressbar"
-					position = { x = 150 y = -10 }
+					position = { x = 90 y = -10 }
 				}
 
 				instantTextBoxType = {
 					name = "time_to_next_tradition"
 					font = "malgun_goth_24"
 					text = "11 months"
-					position = { x = 390 y = -3 }
+					position = { x = 330 y = -3 }
 					maxWidth = 300
 					maxHeight = 20
 					fixedSize = yes
@@ -247,32 +265,19 @@ guiTypes = {
 
 			containerWindowType = {
 				name = "ascension_perks"
-				size = { width = @entry_w height = @entry_h }
-				position = { x = 953 y = @entries_row2_y }
-				verticalScrollbar = "right_vertical_slider_s"
-				background = {
-					name = "black"
-					spriteType = "GFX_plain_bg_tile"
-					alwaysTransparent = yes
-				}
-
+				size = { width = @entry_w_ap height = @entry_h_ap }
+				position = { x = @entries_column1 y = 60 }
+				
 				iconType = {
 					name = "hex_bg"
 					spriteType = "GFX_hex_bg"
 					position = { x = -15 y = -15 }
 					alwaysTransparent = yes
 				}
-
-				instantTextBoxType = {
-					name = "ascension_perks_label"
-					font = "malgun_goth_24"
-					position = { x = 18 y = 4 }
-					text = "ASCENSION_PERKS"
-				}
-
+				
 				containerWindowType = {
 					name = "tradition_box"
-					size = { width = 300 height = 300 }
+					size = { width = 300 height = 200 }
 					position = { x = 15 y = 70 }
 				}
 			}
@@ -304,7 +309,7 @@ guiTypes = {
 
 				background = {
 					name = "bg"
-					quadTextureSprite = "GFX_crisis_bg"
+					quadTextureSprite = "GFX_nemesis_path_bg"
 				}
 
 				containerWindowType = {
@@ -315,14 +320,14 @@ guiTypes = {
 					iconType = {
 						name = "crisis_level_progressbar_box_bg"
 						position = { x = 0 y = 0 }
-						quadTextureSprite = "GFX_crisis_levels_frame"
+						quadTextureSprite = "GFX_nemesis_path_levels_frame"
 						#alwaysTransparent = yes
 					}
 
 					iconType = {
 						name = "crisis_level_progressbar"
 						position = { x = 29 y = 39 }
-						spriteType = "GFX_crisis_progressbar"
+						spriteType = "GFX_nemesis_path_progressbar"
 						frame = 0
 					}
 
@@ -360,12 +365,13 @@ guiTypes = {
 
 			containerWindowType = {
 				name = "information_box"
-				size = { width = @infoWidth height = 480 }
+				size = { width = @infoWidth height = 481 }
 				position = { x = 757 y = 104 }
 
 				background = {
 					name = "bg"
-					quadTextureSprite = "GFX_artifacts_panel_bg"
+					quadTextureSprite = "GFX_dark_green_frame_area"
+					alpha = 0.7
 				}
 
 				buttonType = {
@@ -392,7 +398,7 @@ guiTypes = {
 				# OBJECTIVES
 				containerWindowType = {
 					name = "objectives_box"
-					size = { width = @infoWidth height = 430 }
+					size = { width = @infoWidth height = 431 }
 					position = { x = 0 y = 50 }
 
 					background = {
@@ -412,7 +418,7 @@ guiTypes = {
 						name = "objectives_desc"
 						font = "cg_16b"
 						position = { x = 304 y = 14 }
-						maxWidth = 150
+						maxWidth = 160
 						maxHeight = 22
 						fixedSize = yes
 						format = right
@@ -479,7 +485,7 @@ guiTypes = {
 							font = "cg_16b"
 							maxWidth = 462
 							maxHeight = 20
-							position = { x = 20 y = 290 }
+							position = { x = 20 y = 330 }
 							text = "CRISIS_HOWTO_TITLE"
 							text_color_code = "H"
 							format = left
@@ -488,7 +494,7 @@ guiTypes = {
 						instantTextBoxType = {
 							name = "crisis_howto"
 							font = "cg_16b"
-							position = { x = 20 y = 307 }
+							position = { x = 20 y = 347 }
 							maxWidth = 462
 							maxHeight = 50
 							text = "CRISIS_HOWTO"
@@ -513,7 +519,7 @@ guiTypes = {
 						iconType = {
 							name = "crisis_objectives_header_line"
 							quadTextureSprite = "GFX_line_crisis"
-							position = { x = 6 y = 270 }
+							position = { x = 6 y = 300 }
 							alwaysTransparent = yes
 						}
 					}
@@ -551,8 +557,8 @@ guiTypes = {
 
 				iconType = {
 					name = "crisis_title_box"
-					position = { x = 0 y = -20 }
-					quadTextureSprite = "GFX_crisis_title_box"
+					position = { x = -2 y = -23 }
+					quadTextureSprite = "GFX_nemesis_path_title_box"
 					#alwaysTransparent = yes
 				}
 
@@ -588,14 +594,14 @@ guiTypes = {
 
 				# MENACE
 				containerWindowType = {
-					name = "menace_container"
+					name = "crisis_currency_container"
 					size = { width = 100 height = 65 }
 					position = { x = 310 y = -6 }
 
 					instantTextBoxType = {
-						name = "menace_text"
+						name = "crisis_currency_text"
 						font = "cg_16b"
-						position = { x = -50 y = 10 }
+						position = { x = -30 y = 10 }
 						text = "menace_name"
 						text_color_code = "W"
 						maxHeight = 20
@@ -604,9 +610,9 @@ guiTypes = {
 					}
 
 					instantTextBoxType = {
-						name = "menace_value"
+						name = "crisis_currency_value"
 						font = "cg_16b"
-						position = { x = 75 y = 10 }
+						position = { x = 95 y = 10 }
 						text = "MENACE_VALUE"
 						maxHeight = 20
 						maxWidth = 120
@@ -614,7 +620,22 @@ guiTypes = {
 				}
 			}
 		}
+		
+		#Scrollbar/Height fix from Plentiful Traditions
+		containerWindowType = {
+			name = "SomethingTest"
+			size = { width = @entry_w_ap height = 80 } #@entry_h_ap
+			position = { x = @entries_column1 y = @entries_row3_y }
+				
+			containerWindowType = {
+				name = "tradition_box"
+				size = { width = 300 height = 200 }
+				position = { x = 15 y = 70 }
+			}
+		}
 	}
+
+
 
 	################################################################
 	# TRADITION CATEGORY GRID BOX ENTRY TEMPLATES
@@ -1323,6 +1344,79 @@ guiTypes = {
 		# Don't put any container windows above this comment that shouldn't contain a tradition.
 	}
 
+	### 1 to 1, 1 to 2, 2 to 1 ###
+
+			#####
+			# 1 #
+			#####
+
+	#####	#####	#####
+	# 3 #	# 2 #	# 4 #
+	#####	#####	#####
+
+			#####
+			# 5 #
+			#####
+
+	containerWindowType = {
+		name = "tree_11_12_21"
+		position = { x = 0 y = @three_layer_tree_h }
+
+		iconType = {
+			name = "arrow_1"
+			spriteType = "GFX_arrow_single"
+			position = { x = 147 y = 100 }
+			alwaysTransparent = yes
+		}
+
+		iconType = {
+			name = "arrow_2"
+			spriteType = "GFX_arrow_bridge"
+			position = { x = 102 y = 139 }
+			alwaysTransparent = yes
+		}
+
+		iconType = {
+			name = "arrow_3"
+			spriteType = "GFX_arrow_bridge"
+			position = { x = 162 y = 139 }
+			alwaysTransparent = yes
+		}
+
+		iconType = {
+			name = "arrow_4"
+			spriteType = "GFX_arrow_merge_wide"
+			position = { x = 82 y = 172 }
+			alwaysTransparent = yes
+		}
+
+		containerWindowType = {
+			name = "tree_11_12_21_tradition_1"
+			position = { x = 131 y = 55 }
+		}
+
+		containerWindowType = {
+			name = "tree_11_12_21_tradition_2"
+			position = { x = 131 y = 125 }
+		}
+
+		containerWindowType = {
+			name = "tree_11_12_21_tradition_3"
+			position = { x = 61 y = 125 }
+		}
+
+		containerWindowType = {
+			name = "tree_11_12_21_tradition_4"
+			position = { x = 201 y = 125 }
+		}
+
+		containerWindowType = {
+			name = "tree_11_12_21_tradition_5"
+			position = { x = 131 y = 195 }
+		}
+		# Don't put any container windows above this comment that shouldn't contain a tradition.
+	}
+
 	################################################################
 	# TRADITION CATEGORY SELECTION VIEW
 	################################################################
@@ -1390,7 +1484,7 @@ guiTypes = {
 
 		containerWindowType = {
 			name = "tradition_category_gridbox_container"
-			position = { x = 10 y = @entries_row1_y }
+			position = { @entries_column1 y = 63 }
 			size = { width = 1262 height = 606 }
 			dynamic_extra_height = @dynamic_extra
 			dynamic_extra_height_max = @dynamic_extra_max
@@ -1410,7 +1504,7 @@ guiTypes = {
 			}
 		}
 	}
-
+	
 	# CRISIS LEVEL ICON ENTRY
 	containerWindowType = {
 		name = "crisis_level_icon_entry"
@@ -1440,7 +1534,7 @@ guiTypes = {
 
 		background = {
 			name = "level_entry_bg"
-			quadTextureSprite = "GFX_crisis_level_boxes"
+			quadTextureSprite = "GFX_nemesis_path_level_boxes"
 			frame = 2
 		}
 
@@ -1520,7 +1614,7 @@ guiTypes = {
 
 		iconType = {
 			name = "icon"
-			position = { x = 415 y = 8 }
+			position = { x = 410 y = 8 }
 			quadTextureSprite = "GFX_resource_menace"
 			alwaystransparent = yes
 			scale = 1.0

@@ -1,0 +1,28 @@
+﻿l_english:
+ bst_setup.1.name: "Bubble Space Technology Opening"
+ bst_setup.1.desc: "Bubble Space Technology is in an early alpha state. This means that you should expect bugs and missing content. 1d13d0d"
+ survey_bst_worlds_chain_title: "Bubble Space Technology Survey Event Chain"
+ survey_bst_worlds_chain_desc: "Coming Soon"
+ bst_survey.3.name: "Survey Complete!"
+ bst_survey.3.desc: "Our science ship was surveying a frozen world when it detected an unusually regular series of voids buried under some of the snow and ice. Upon descending to investigate, our scientists and surveyors have uncovered what appears to be an abandoned installation constructed by an unknown alien race. While the ship cannot detect any thermal or electromagnetic signatures, the surveyors agree that a more detailed excavation by archaeologists is required."
+ bst_species.06.title:0 "Dominant Species Set"
+ bst_species.06.desc:0 "Our Empires dominant species has been set to §Y[uberspecies.GetName]§!"
+
+ bst_species.10.title:0 "How Much?"
+ bst_species.10.desc:0 "With the bodies prepared, a question arises: How many of our people should shed the limitations of flesh and embrace the cold perfection of metal?\n\nGame Note: This pop rebalance will happen 1 day after the main synth ascension/ascension situation - while the situation is ongoing 100% of pops & leaders will go to synth until the situation finishes.\n\n§RWarning:§! Synths cannot have biological traits, such as §MPsionic§!, §HCybernetic§! or §GErudite§!.  You should keep some biological pops if you want to take advantage of those."
+ bst_species.10.0.synths:0 "§S100% synthetic, leaders go synthetic, synthetic authorities (Vanilla behaviour)§!"
+ bst_species.10.25.synths:0 "§S75% synthetic, leaders go synthetic, synthetic authorities§!"
+ bst_species.10.50.synths:0 "§S50% synthetic, leaders go synthetic, synthetic authorities§!"
+ bst_species.10.75.synths:0 "§S25% synthetic, leaders go synthetic, synthetic authorities§!"
+ bst_species.10.25.bio:0 "§Y75% synthetic, leaders remain biological, cybernetic authorities§!"
+ bst_species.10.50.bio:0 "§Y50% synthetic, leaders remain biological, cybernetic authorities§!"
+ bst_species.10.75.bio:0 "§Y25% synthetic, leaders remain biological, cybernetic authorities§!"
+ bst_species.10.90.bio:0 "§Y10% synthetic, leaders remain biological, cybernetic authorities§!"
+
+ bst_species.11.title:0 "Apply Bio/Synth Pop Amounts"
+
+ bst_species.20.title:0 "MORE Machine Ascension"
+ bst_species.20.desc:0 "Because why be limited to 1 §Y$ap_synthetic_age$§! path when multiple exist?\n\nSelect the ones you haven't taken and it will auto-add the tradition for you as if you had completed the situation.\n\n§RSTRONGLY Recommend§! you take Modularity -> Nanites -> Virtual. \n\n§RWARNING§!:  Can cause instability! Nanite and Virtual are opposite playstyles"
+ bst_species.20.desc.manytrads: "$bst_species.20.desc$\n\n§RWARNING:§!  §YThe vanilla game thinks you have filled all your tradition slots!§!  Unless you are using a mod that grants you more tradition slots (and has not properly overriden the slots variable) do not try to take another!"
+
+ EVERYTHING_GOES_TO_SYTH:0 "We can assimilate basically everything into a synth"

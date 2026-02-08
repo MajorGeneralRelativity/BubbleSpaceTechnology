@@ -1,12 +1,34 @@
 ﻿l_english:
+#Edicts
  edict_influence_campaign: "Generate More Influence"
  edict_influence_campaign_desc: "This is the test command to net a bit of influence"
- bst_setup.1.name: "Bubble Space Technology Opening"
- bst_setup.1.desc: "Bubble Space Technology is in an early alpha state. This means that you should expect bugs and missing content. 1d13d0d"
- survey_bst_worlds_chain_title: "Bubble Space Technology Survey Event Chain"
- survey_bst_worlds_chain_desc: "Coming Soon"
- bst_survey.3.name: "Survey Complete!"
- bst_survey.3.desc: "Our science ship was surveying a frozen world when it detected an unusually regular series of voids buried under some of the snow and ice. Upon descending to investigate, our scientists and surveyors have uncovered what appears to be an abandoned installation constructed by an unknown alien race. While the ship cannot detect any thermal or electromagnetic signatures, the surveyors agree that a more detailed excavation by archaeologists is required."
  tech_bst_more_ascension_perks: "Generate New Ascension Perk"
  tech_bst_more_ascension_perks_desc: "This will unlock another Ascension Perk Slot"
  bst_worlds_surveyed: "Frozen worlds surveyed"
+ bst.01.title:0 "$edict_bst_fix_species$"
+ bst.02.title:0 "$edict_bst_fix_leaders$"
+ bst.03.title:0 "$edict_bst_fix_leader_species$"
+ bst.04.title:0 "$edict_bst_bio_dominant$"
+ bst.05.title:0 "$edict_bst_synth_dominant$"
+ edict_bst_fix_species:0 "Fix Missing Biological Species Traits"
+ edict_bst_fix_species_desc:0 "Fixes if the primary species has lost its §HCybernetic§! or §MPsionic§! Trait.  Other species you can do with assimilation"
+
+ edict_bst_fix_leaders:0 "Fix Missing Leader Traits"
+ edict_bst_fix_leaders_desc:0 "Fixes leaders missing their species special biological or synth traits."
+
+ edict_bst_fix_leader_species:0 "Fix Biological Leader Species"
+ edict_bst_fix_leader_species_desc:0 "If §Y$edict_bst_fix_leaders$§! doesn't work, your existing leaders may be stuck as the wrong sub-species.\nYou need a main species pop that is §MPsionic§!, §HCybernetic§! and §GErudite§! then run this edict."
+
+ edict_bst_bio_dominant:0 "Set Biological Species as Dominant"
+ edict_bst_bio_dominant_desc:0 "After §Y$ap_synthetic_evolution$§!, sets a biological species template with §MPsionic§!, §HCybernetic§! and §GErudite§! as the empire dominant species (must have at least 1 pop with all 3 traits)"
+ edict_bst_synth_dominant:0 "Set Synthetic Species as Dominant"
+ edict_bst_synth_dominant_desc:0 "After §Y$ap_synthetic_evolution$§!, sets a synthetic species template with as the empire dominant species (must have at least 1 pop)"
+
+ edict_bst_more_machine_ascension:0 "More §Y$ap_synthetic_age$§!s"
+ edict_bst_more_machine_ascension_desc:0 "Get more §Y$ap_synthetic_age$§! traditions"
+
+ edict_bst_more_bio_ascension:0 "More §Y$ap_engineered_evolution$§!s"
+ edict_bst_more_bio_ascension_desc:0 "Get more §Y$ap_engineered_evolution$§! traditions"
+
+ edict_bst_change_government:0 "Change Advanced Government"
+ edict_bst_change_government_desc:0 "Swap between advanced authorities based on unlocked traditions"

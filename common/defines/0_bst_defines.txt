@@ -1,5 +1,10 @@
 ﻿NCamera = {
 }
 NGameplay = {
-	ASCENSION_PERKS_SLOTS = 12
+	ASCENSION_PERKS_SLOTS = 12 #Inceases ascension perk slots to 12
+	TRADITION_COST_TRADITION = 7 #Slightly lowers tradition cost per tradition to compensate for the extra trees
+	TRADITION_CATEGORIES_MAX = 12 #Inceases the amount of trees you can take to 12
+}
+NAI = {
+	NUM_TRADITIONS_FOR_EDICTS = 84 #Tells the AI to take extra trees
 }
