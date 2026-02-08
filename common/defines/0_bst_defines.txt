@@ -1,5 +1,5 @@
 ﻿NCamera = {
 }
 NGameplay = {
-	ASCENSION_PERKS_SLOTS = 16
+	ASCENSION_PERKS_SLOTS = 12
 }

@@ -1,0 +1,628 @@
+namespace = bst_species
+
+#Fix species - add psionic and cyborg to all organic pops if you have both of them
+country_event = {
+	id = bst_species.01
+	title = bst_species.01.title
+	is_triggered_only = yes
+	hide_window = yes
+	immediate = {
+		if = {
+			limit = { bst_can_psionic_cyborg_assimilate = yes }
+			every_owned_species = {
+				limit = {
+					bst_species_to_check_for_psi_cyber_base = yes
+					NAND = {
+						has_trait = trait_psionic
+						has_trait = trait_cybernetic
+					}
+				}
+				save_event_target_as = oldSpecies
+				modify_species = {
+					species = event_target:oldSpecies
+					remove_trait = trait_limited_cybernetic
+					add_trait = trait_psionic
+					add_trait = trait_cybernetic
+					effect = { save_event_target_as = newSpecies }
+				}
+				root = { bst_switch_pop_species = yes }
+			}
+		}
+		else_if = {
+			limit = { bst_can_cyborg_assimilate = yes }
+			every_owned_species = {
+				limit = {
+					bst_species_to_check_for_psi_cyber_base = yes
+					NAND = {
+						has_trait = trait_cybernetic
+					}
+				}
+				save_event_target_as = oldSpecies
+				modify_species = {
+					species = event_target:oldSpecies
+					remove_trait = trait_limited_cybernetic
+					add_trait = trait_cybernetic
+					effect = { save_event_target_as = newSpecies }
+				}
+				root = { bst_switch_pop_species = yes }
+			}
+		}
+		else_if = {
+			limit = { bst_can_psionic_assimilate = yes }
+			every_owned_species = {
+				limit = {
+					bst_species_to_check_for_psi_cyber_base = yes
+					NAND = {
+						has_trait = trait_psionic
+					}
+				}
+				save_event_target_as = oldSpecies
+				modify_species = {
+					species = event_target:oldSpecies
+					remove_trait = trait_limited_cybernetic
+					add_trait = trait_psionic
+					effect = { save_event_target_as = newSpecies }
+				}
+				root = { bst_switch_pop_species = yes }
+			}
+		}
+
+		# deal with virtual trait
+		country_event = { id = bst_species.12 }
+	}
+}
+
+#Fix leaders - add psionic, cyborg and erudite to leaders if you have them
+country_event = { 
+	id = bst_species.02
+	title = bst_species.02.title
+	is_triggered_only = yes
+	hide_window = yes
+	immediate = {
+		every_owned_leader = {
+			limit = {
+				species = { has_trait = trait_cybernetic }
+				NOR = {
+					has_trait = leader_trait_cyborg
+					has_trait = leader_trait_curator
+				}
+			}
+			add_trait = { trait = leader_trait_cyborg }
+		}
+		every_owned_leader = {
+			limit = {
+				species = { has_trait = trait_erudite }
+				NOR = {
+					has_trait = leader_trait_erudite
+					has_trait = leader_trait_curator
+				}
+			}
+			add_trait = { trait = leader_trait_erudite }
+		}
+		every_owned_leader = {
+			limit = {
+				OR = {
+					species = { has_trait = trait_psionic }
+					# catcher because the psionic ascension does not go thorugh and modify leader species.
+					AND = {
+						species = { 
+							is_same_species = root 
+							NOT = { has_trait = trait_mechanical }
+						}
+						root = {
+							bst_can_psionic_assimilate = yes
+						}
+					}
+				}
+				NOT = {
+					has_trait =	leader_trait_psionic
+				}
+			}
+			add_trait = { trait = leader_trait_psionic }
+		}
+		every_owned_leader = {
+			limit = {
+				species = { has_trait = trait_mechanical }
+				NOR = {
+					has_trait = leader_trait_synthetic
+				}
+			}
+			add_trait = { trait = leader_trait_synthetic }
+		}
+
+		#pool leaders (identical save loop)
+		every_pool_leader = {
+			limit = {
+				species = { has_trait = trait_cybernetic }
+				NOR = {
+					has_trait = leader_trait_cyborg
+					has_trait = leader_trait_curator
+				}
+			}
+			add_trait = { trait = leader_trait_cyborg }
+		}
+		every_pool_leader = {
+			limit = {
+				species = { has_trait = trait_erudite }
+				NOR = {
+					has_trait = leader_trait_erudite
+					has_trait = leader_trait_curator
+				}
+			}
+			add_trait = { trait = leader_trait_erudite }
+		}
+		every_pool_leader = {
+			limit = {
+				OR = {
+					species = { has_trait = trait_psionic }
+					# catcher because the psionic ascension does not go thorugh and modify leader species.
+					AND = {
+						species = { 
+							is_same_species = root 
+							NOT = { has_trait = trait_mechanical }
+						}
+						root = {
+                            bst_can_psionic_assimilate = yes
+						}
+					}
+				}
+				NOT = {
+					has_trait =	leader_trait_psionic
+				}
+			}
+			add_trait = { trait = leader_trait_psionic }
+		}
+		every_pool_leader = {
+			limit = {
+				species = { has_trait = trait_mechanical }
+				NOR = {
+					has_trait = leader_trait_synthetic
+				}
+			}
+			add_trait = { trait = leader_trait_synthetic }
+		}
+	}
+}
+
+
+#Fix leader species
+country_event = { 
+	id = bst_species.03
+	title = bst_species.03.title
+	is_triggered_only = yes
+	hide_window = yes
+	immediate = {
+		if = {
+			limit = {
+				any_owned_pop_group = {
+					species = {
+						 has_trait = trait_cybernetic 
+						 has_trait = trait_erudite 
+						 has_trait = trait_psionic
+						 is_same_species = root 
+					}
+				}
+			}
+			random_owned_pop_group = {
+				limit = {
+					species = {
+						has_trait = trait_cybernetic 
+						has_trait = trait_erudite 
+						has_trait = trait_psionic
+						is_same_species = root 
+					}
+				}
+				species = {
+					save_event_target_as = uberspecies
+				}
+			}
+			every_owned_leader = {
+				limit = {
+					species = {
+						is_same_species = root 
+						NOT = { is_same_value = event_target:uberspecies }
+					}				
+				}
+				change_species = event_target:uberspecies
+			}
+			every_pool_leader = {
+				limit = {
+					species = {
+						is_same_species = root 
+						NOT = { is_same_value = event_target:uberspecies }
+					}				
+				}
+				change_species = event_target:uberspecies
+			}
+		}
+		country_event = {
+			id = bst_species.02
+		}
+	}
+}
+
+#set bio dominant
+country_event = { 
+	id = bst_species.04
+	title = bst_species.04.title
+	is_triggered_only = yes
+	hide_window = yes
+	immediate = {
+		if = {
+			limit = {
+				any_owned_pop_group = {
+					species = {
+						 has_trait = trait_cybernetic 
+						 has_trait = trait_erudite 
+						 has_trait = trait_psionic
+						 is_same_species = root 
+					}
+				}
+			}
+			random_owned_pop_group = {
+				limit = {
+					species = {
+						has_trait = trait_cybernetic 
+						has_trait = trait_erudite 
+						has_trait = trait_psionic
+						is_same_species = root 
+					}
+				}
+				species = {
+					save_event_target_as = uberspecies
+				}
+			}
+			change_dominant_species = {
+				species = event_target:uberspecies
+			}
+			country_event = {
+				id = bst_species.06
+			}
+		}
+	}
+}
+
+#set synth dominant
+country_event = { 
+	id = bst_species.05
+	title = bst_species.05.title
+	is_triggered_only = yes
+	hide_window = yes
+	immediate = {
+		if = {
+			limit = {
+				any_owned_pop_group = {
+					species = {
+						 has_trait = trait_mechanical
+						 is_same_species = root 
+					}
+				}
+			}
+			random_owned_pop_group = {
+				limit = {
+					species = {
+						has_trait = trait_mechanical
+						is_same_species = root 
+					}
+				}
+				species = {
+					save_event_target_as = uberspecies
+				}
+			}
+			change_dominant_species = {
+				species = event_target:uberspecies
+			}
+			country_event = {
+				id = bst_species.06
+			}
+		}
+	}
+}
+
+
+country_event = {
+	id = bst_species.06
+	title = bst_species.06.title
+	desc = bst_species.06.desc
+	picture = GFX_evt_ancient_databank
+	is_triggered_only = yes
+
+	option = {
+		name = OK
+	}
+}
+
+
+# Synth Ascension Question
+country_event = { 
+	id = bst_species.10
+	title = bst_species.10.title
+	desc = bst_species.10.desc
+	picture = GFX_evt_ancient_databank
+	is_triggered_only = yes
+
+	immediate = {
+		if = {
+			limit = {
+				has_country_flag = aap_no_machine_age
+			}
+			root.owner_species = {
+				save_event_target_as = oldSpecies
+			}
+		}
+		else = {
+			root.owner_species = {
+				save_global_event_target_as = bst_oldspecies@root.owner
+			}
+		}
+	}
+	
+	option = {
+		name = bst_species.10.0.synths
+		hidden_effect = {
+			capital_scope = {
+				set_variable = { which = bio_percentage value = 0 }
+			}
+		}
+	}
+	option = {
+		name = bst_species.10.25.synths
+		hidden_effect = {
+			capital_scope = {
+				set_variable = { which = bio_percentage value = 0.25 }
+			}
+		}
+	}	
+	option = {
+		name = bst_species.10.50.synths
+		hidden_effect = {
+			capital_scope = {
+				set_variable = { which = bio_percentage value = 0.5 }
+			}
+		}
+	}
+	option = {
+		name = bst_species.10.75.synths
+		hidden_effect = {
+			capital_scope = {
+				set_variable = { which = bio_percentage value = 0.75 }
+			}
+		}
+	}
+	option = {
+		name = bst_species.10.25.bio
+		hidden_effect = {
+			capital_scope = {
+				set_variable = { which = bio_percentage value = 0.25 }
+			}
+			set_country_flag = bio_leaders
+		}
+	}
+	option = {
+		name = bst_species.10.50.bio
+		hidden_effect = {
+			capital_scope = {
+				set_variable = { which = bio_percentage value = 0.5 }
+			}
+			set_country_flag = bio_leaders
+		}
+	}	
+	option = {
+		name = bst_species.10.75.bio
+		hidden_effect = {
+			capital_scope = {
+				set_variable = { which = bio_percentage value = 0.75 }
+			}
+			set_country_flag = bio_leaders
+		}
+	}
+	option = {
+		name = bst_species.10.90.bio
+		hidden_effect = {
+			capital_scope = {
+				set_variable = { which = bio_percentage value = 0.90 }
+			}
+			set_country_flag = bio_leaders
+		}
+	}
+	after = {
+		if = {
+			limit = {
+				has_country_flag = aap_no_machine_age
+			}
+			country_event = {
+				id = utopia.2551
+			}
+			hidden_effect = {
+				country_event = {
+					id = bst_species.11
+					days = 1
+				}
+			}
+		}
+	}
+}
+
+# Create Bio Pops
+country_event = {
+	id = bst_species.11
+	title = bst_species.11.title
+	is_triggered_only = yes
+	hide_window = yes
+
+	immediate = {
+		if = {
+			limit = { capital_scope = { check_variable = { which = bio_percentage value > 0 } } }
+			every_owned_planet = {
+				# Find a pop group with the right assimilation type
+				every_owned_pop_group = {
+					limit = {
+						has_trait = trait_mechanical
+						pop_group_size > 10
+					}
+					save_event_target_as = old_pop_group
+					planet = {
+						create_pop_group = {
+							pop_group = event_target:old_pop_group
+							species = event_target:oldSpecies
+							size = 0
+							effect = {
+								transfer_pop_amount = {
+									source = event_target:old_pop_group
+									target = this
+									percentage = owner.capital_scope.bio_percentage
+								}
+							}
+						}
+					}
+				}
+			}
+			clear_variable = capital_scope.bio_percentage
+		}
+
+		# if we have bio leaders flip species and remove synth trait
+		if = {
+			limit = { has_country_flag = bio_leaders }
+
+			# bio leaders = we assume dominant species should remain bio
+			change_dominant_species = { species = event_target:oldSpecies}
+
+			every_owned_leader = {
+				limit = {
+					NOR = {
+						has_leader_flag = renowned_leader
+						has_leader_flag = legendary_leader
+                        is_leader_tier = leader_tier_renowned
+                        is_leader_tier = leader_tier_legendary
+                        is_event_leader = yes
+					}
+				}
+				change_species = event_target:oldSpecies
+				change_leader_portrait = species
+				remove_trait = leader_trait_synthetic
+			}
+			every_pool_leader = {
+				change_species = event_target:oldSpecies
+				change_leader_portrait = species
+				remove_trait = leader_trait_synthetic
+			}
+		}
+		# else if we have synthetic leaders, they probably won't have lost their special traits
+		# as those get added to the leader directly
+		# so de-bio them
+		else = {
+			every_owned_leader = {
+				limit = {
+					NOR = {
+						has_leader_flag = renowned_leader
+						has_leader_flag = legendary_leader
+					}
+				}
+				remove_trait = leader_trait_cyborg
+				remove_trait = leader_trait_limited_cyborg
+				remove_trait = leader_trait_psionic
+				remove_trait = leader_trait_erudite
+			}
+			every_pool_leader = {
+				remove_trait = leader_trait_cyborg
+				remove_trait = leader_trait_limited_cyborg
+				remove_trait = leader_trait_psionic
+				remove_trait = leader_trait_erudite	
+			}
+		}
+	}
+}
+
+
+
+# Fix virtual synthetics
+country_event = {
+	id = bst_species.12
+	is_triggered_only = yes
+	hide_window = yes
+
+	immediate = {
+		every_owned_species = {
+			limit = {
+				is_same_species = root
+				has_trait = trait_robot_digital_1
+				NOT = { has_trait = trait_mechanical}
+			}
+			change_species_characteristics = { remove_trait = trait_robot_digital_1 }
+		}
+		owner_main_species = {
+			if = {
+				limit = {
+					OR = {
+						has_trait = trait_psionic
+						has_trait = trait_cybernetic
+					}
+					has_trait = trait_robot_digital_1
+				}
+				change_species_characteristics = { remove_trait = trait_robot_digital_1 }
+			}
+		}
+		every_owned_species = {
+			limit = {
+				is_same_species = root
+				has_trait = trait_mechanical
+				NOT = {  has_trait = trait_robot_digital_1 }
+			}
+			change_species_characteristics = { add_trait = trait_robot_digital_1 }
+		}
+		refresh_portraits = character
+	}
+}
+
+
+country_event = {
+	id = bst_species.20
+	title = bst_species.20.title
+	desc = {
+		exclusive_trigger = { num_tradition_categories < @max_tradition_trees }
+		text = bst_species.20.desc
+	}
+	desc = {
+		exclusive_trigger = { num_tradition_categories >= @max_tradition_trees }
+		text = bst_species.20.desc.manytrads
+	}
+	picture = GFX_evt_ancient_databank
+	is_triggered_only = yes
+
+	trigger = { has_machine_age_dlc = yes }
+
+	option = {
+		name = EXIT
+		default_hide_option = yes
+	}
+
+	option = {
+		trigger = { NOT = { has_tradition = tr_nanotech_adopt } }
+		name = machine_age.4005.a.nanotech.tt
+		set_country_flag = nanotech_traditions_unlocked
+		add_tradition = tr_nanotech_adopt
+		hidden_effect = {
+			set_variable = {
+				which = nanotech_worlds_created
+				value = 0
+			}
+		}
+	}
+
+	option = {
+		trigger = { NOT = { has_tradition = tr_virtuality_adopt } }
+		name = machine_age.4005.a.virtuality.tt
+		set_country_flag = virtuality_traditions_unlocked
+		add_tradition = tr_virtuality_adopt
+		hidden_effect = {
+			refresh_portraits = character
+		}
+	}
+
+	option = {
+		trigger = { NOT = { has_tradition = tr_modularity_adopt } }
+		name = machine_age.4005.a.modularity.tt
+		set_country_flag = modularity_traditions_unlocked
+		add_tradition = tr_modularity_adopt
+	}
+}

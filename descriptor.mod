@@ -3,4 +3,4 @@ tags={
     "Gameplay"
 }
 name="Bubble Space Technology"
-supported_version="v3.14.*"
+supported_version="v4.2.*"

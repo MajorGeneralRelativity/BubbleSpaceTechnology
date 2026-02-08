@@ -4,7 +4,7 @@ tech_bst_more_ascension_perks = {
 	cost_per_level = 1000
 	tier = 5
 	category = { statecraft }
-	levels = 8
+	levels = 4
 	
 	ai_update_type = all
 	is_rare = yes

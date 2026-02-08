@@ -1,0 +1,52 @@
+# species
+bst_species_to_check_for_psi_cyber_base = {
+    is_same_species = root
+    is_sapient = yes
+    NOR = {
+        has_trait = trait_mechanical
+        has_trait = trait_machine_unit
+        has_trait = trait_hive_mind
+    }
+}
+
+# country
+bst_can_psionic_assimilate = {
+    OR = {
+        has_tradition = tr_psionics_psionic_assimilation
+        has_tradition = tr_psionics_shroud_great_awakening
+    }
+}
+
+# country
+bst_can_cyborg_assimilate = {
+    has_tradition = tr_cybernetics_transubstantiation_synthesis
+}
+
+# country
+bst_can_psionic_cyborg_assimilate = {
+    bst_can_psionic_assimilate = yes
+    bst_can_cyborg_assimilate = yes
+}
+
+bst_has_synth_authority = {
+    has_country_flag = synth_physical
+    has_country_flag = synth_virtual
+}
+
+bst_ai_ascension_limit = {
+    OR = {
+        has_origin = origin_shroudwalker_apprentice
+        has_origin = origin_mindwardens
+        has_origin = origin_endbringers
+        has_origin = origin_cybernetic_creed
+        has_origin = origin_synthetic_fertility
+		has_origin = origin_evolutionary_predators
+        has_ascension_perk = ap_the_flesh_is_weak
+        has_ascension_perk = ap_organo_machine_interfacing
+        has_ascension_perk = ap_organo_machine_interfacing_assimilator
+        has_ascension_perk = ap_mind_over_matter
+        has_ascension_perk = ap_synthetic_evolution
+        has_ascension_perk = ap_engineered_evolution
+        has_ascension_perk = ap_synthetic_age
+    }
+}

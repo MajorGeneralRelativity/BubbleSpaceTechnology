@@ -1,18 +1,93 @@
-influence_campaign = {
-	length = -1
-	icon = "GFX_edict_type_time"
+#influence_campaign = {
+#	length = -1
+#	icon = "GFX_edict_type_time"
+#	resources = {
+#		category = campaigns
+#		cost = {
+#			unity = 100
+#		}
+#	}
+#
+#	modifier = {
+#		country_base_influence_produces_add = 1
+#	}
+#
+#	ai_weight = {
+#		weight = 0
+#	}
+#}
+bst_fix_species = {
+    icon = "GFX_edict_type_policy"
+    length = 1
+    resources = {
+        category = edicts
+        cost = { influence = 1 }
+    }
+
+    potential = {
+		is_machine_empire = no
+        num_ascension_perks > 2
+        OR = {
+            has_ascension_perk = ap_the_flesh_is_weak
+            has_ascension_perk = ap_organo_machine_interfacing
+            has_ascension_perk = ap_organo_machine_interfacing_assimilator
+            has_ascension_perk = ap_mind_over_matter
+            has_ascension_perk = ap_synthetic_evolution
+            has_ascension_perk = ap_engineered_evolution
+        }
+    }
+
+    effect = { country_event = { id = bst_species.01 } }
+
+	ai_weight = { weight = 0 }
+}
+
+bst_fix_leaders = {
+    icon = "GFX_edict_type_policy"
+    length = 1
 	resources = {
-		category = campaigns
-		cost = {
-			unity = 100
-		}
+		category = edicts
+		cost = { influence = 1 }
 	}
 
-	modifier = {
-		country_base_influence_produces_add = 1
+    potential = {
+		is_machine_empire = no
+        num_ascension_perks > 2
+        OR = {
+            has_ascension_perk = ap_the_flesh_is_weak
+            has_ascension_perk = ap_organo_machine_interfacing
+            has_ascension_perk = ap_organo_machine_interfacing_assimilator
+            has_ascension_perk = ap_mind_over_matter
+            has_ascension_perk = ap_synthetic_evolution
+            has_ascension_perk = ap_engineered_evolution
+        }
+    }
+
+    effect = { country_event = { id = bst_species.02 } }
+
+	ai_weight = { weight = 0 }
+}
+
+bst_fix_leader_species = {
+    icon = "GFX_edict_type_policy"
+    length = 1
+	resources = {
+		category = edicts
+		cost = { influence = 1 }
 	}
 
-	ai_weight = {
-		weight = 0
-	}
+    potential = {
+		is_machine_empire = no
+        has_ascension_perk = ap_mind_over_matter
+        has_ascension_perk = ap_engineered_evolution
+        OR = {
+            has_ascension_perk = ap_the_flesh_is_weak
+            has_ascension_perk = ap_organo_machine_interfacing
+            has_ascension_perk = ap_organo_machine_interfacing_assimilator
+        }
+    }
+
+    effect = { country_event = { id = bst_species.03 } }
+
+	ai_weight = { weight = 0 }
 }
