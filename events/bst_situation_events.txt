@@ -1,0 +1,12 @@
+namespace = bst_situation
+
+situation_event = {
+	id = bst_situation.1 #Event to test situations
+	is_triggered_only = yes
+	fire_only_once = yes
+	title = "bst_setup.1.name"
+	desc = "bst_setup.1.desc"
+	immediate = {
+		
+	}
+}
